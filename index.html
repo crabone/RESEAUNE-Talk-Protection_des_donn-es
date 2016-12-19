@@ -1,0 +1,684 @@
+<!--
+  Template stealed from the official demonstration presentation w/ remarkjs
+  https://remarkjs.com
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
+    <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
+    <title>Atelier - Protection des données (2016)</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 25%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+      .right-column h3 {
+        margin-top: 0.7em;
+      }
+      .right-column img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+
+# Sensibilisation à la protection des données
+[Fabien Franchini ([@crab_one](https://twitter.com/crab_one)) - 13.12.2016]
+
+---
+
+layout: false
+.left-column[
+  ## Introduction
+]
+.right-column[
+
+### Au programme:
+
+* Principes de la sécurité de l'information
+* Menaces
+* Hygiène informatique
+* Sauvegarde intelligente
+* Internet et ses pièges
+* Gestion des mots de passe
+
+![Swift on viruses](assets/images/swift_on_viruses.jpg)
+
+]
+
+---
+
+.left-column[
+  ## Sécurité de l'information
+  ### - Principes
+]
+.right-column[
+
+
+Protection de l'information (données) visant à contrer un panel de menaces, afin
+d'assurer la continuation d'une activité et d'en minimiser ses risques.
+
+La sécurité de l'information vise à garantir:
+
+* **la confidentialité,**
+* **l'intégrité,**
+* **et la disponibilité,**
+
+des données.
+
+La sécurité ne se gagne pas, magiquement, en installant deux ou trois logiciels.
+Souvent, ils apportent qu'une mauvaise illusion de sécurité et la lucidité de
+l'utilisateur s'en voit réduite.
+
+* **C'est un ensemble de bonnes pratiques à adopter.**
+
+Chaque action de la part de l'utilisateur, est susceptible de changer la donne.
+
+* Installation d'un nouveau logiciel, utilisation d'un nouveau périphérique
+(Webcam, micro, clavier, etc...).
+
+]
+
+---
+
+.left-column[
+  ## Sécurité de l'information
+  ### - Principes
+  ### - Confort
+]
+.right-column[
+
+La sécurité engendre une perte du confort d'utilisation.
+
+* Les procédures visant à améliorer la sécurité du système doivent être adaptées
+selon les besoins de l'utilisateur et selon les risques encourus.
+
+L'ajout excessif et superflu de sécurité engendre une complexité accrue de sa
+maintenance, et est plus facilement sujet à une multiplication d'erreurs et/ou
+d'incohérences.
+
+> "La paranoïa, c'est, entre autre, le mélange de<br />la mégalomanie et d'un
+sentiment persecution"
+
+De plus, la perte de confort occasionne, à la longue, un découragement et un
+manque de discipline de l'utilisateur.
+
+]
+
+---
+
+.left-column[
+  ## Sécurité de l'information
+  ### - Principes
+  ### - Confort
+  ### - Menaces
+]
+.right-column[
+
+Généralement un étudiant est vulnérable à des menaces comme:
+
+* la perte de données,
+* le vol d'informations,
+* l'atteinte à l'image,
+* le racket.
+
+Qui peuvent se traduire par:
+
+* la chute ou la dégradation du matériel;
+* le crash du système;
+* le vol du matériel;
+* le plagiat de travaux;
+* l'usurpation d'identité;
+* d'une demande de rançon.
+
+et tant d'autres... C'est pour cela qu'il est impératif d'avoir des plans pour
+s'en prévenir, et y répondre efficacement.
+
+.footnote["6 million ways to die, choose one" - Cutty Ranks]
+
+]
+---
+.left-column[
+  ## Hygiène informatique
+]
+.right-column[
+
+L'utilisation lucide d'un ordinateur est la clef pour bénéficier d'une
+sécurité optimale.
+
+Pour résumé, on peut lister certaines règles d'or, à appliquer.
+
+* Utiliser le système de manière appropriée et consciente;
+* Ne pas appliquer aveuglement les conseils prodigués;
+* Ne jamais laisser un ordinateur sans surveillance;
+* Mettre à jour ses logiciels;
+* Installer et activer les outils de sécurité;
+* Vérifier la provenance des logiciels installés;
+* Sauvegarder intelligement ses données;
+* Protéger ses secrets;
+* Ne pas accorder trop de confiance aux ressources externes;
+* Contrôler régulièrement l'état global du système.
+
+]
+
+---
+
+.left-column[
+  ## Hygiène informatique
+]
+.right-column[
+
+### Utiliser le système de manière appropriée et consciente
+
+L'ordinateur est avant tout, un outil de production ou de loisir. Son
+utilisation doit être bien définie, pour ainsi maintenir une discipline et une
+rigueure.
+
+### Ne pas appliquer aveuglement les conseils prodigués
+
+Le cyberespace regorge d'informations variées et de qualité pour celui qui
+sait trouver. Il en est cependant aussi rempli, d'autres, non-vérifiées,
+fausses, et de très mauvaise qualité... En informatique, suivre aveuglement des
+procédures, peut engendrer des conséquences dramatiques.
+
+### Ne jamais laisser un ordinateur sans surveillance
+
+Dans la majorité des cas, un ordinateur ne peut pas s'autodéfendre si il est
+laissé à la portée de quiconque sans surveillance. Toute sécurité est
+anéantie si un adversaire parvient, à obtenir un accès physique. Pour éviter une
+extraction simple des données en cas de vol, il est possible de chiffrer les
+données de la machine.
+
+]
+
+---
+
+.left-column[
+  ## Hygiène informatique
+]
+.right-column[
+
+### Mettre à jours ses logiciels
+
+Souvent, une attaque informatique se déclenche par l'exploitation d'une
+erreur de conception d'un logiciel. Les mises à jours du système
+d'exploitation ou d'un logiciel, incluent les corrections des vulnérabilités
+découvertes. Si elles ne sont pas installés, alors il devient difficile s'en
+prémunir.
+
+### Installer et activer les outils de sécurité
+
+La plupart des systèmes d'exploitation offrent, de base, des solutions pour
+maintenir sa sécurité. Il est très important de les utiliser. Si l'installation
+logiciel tier, propose de désactiver, un de ces outils, alors il est impératif
+d'annuler la procédure, pour ne pas se rendre vulnérable.
+
+]
+
+---
+
+.left-column[
+  ## Hygiène informatique
+]
+.right-column[
+
+### Vérifier la provenance des logiciels installés
+
+Ce point constitue un des éléments les plus important pour maintenir une bonne
+sécurité. L'ajout de logiciels tier, influence, directement sur la sécurité du
+système. En particulier ceux dont requiert un accès réseau (Client torrent,
+client mail, VNC, etc...).
+
+Il est fortement recommandé de se procurer, ces logiciels, dans les sites
+officiels ou par des gestionnaires de paquets (stores).
+
+### Ne pas accorder trop de confiance aux ressources externes
+
+Les autres ressources comme les clefs USB, disques durs externes, et sont pas à
+prendre à la légère. Par exemple l'introduction, d'une clef USB, dans un système
+compromis aura pour effet de la compromettre. Du coup, il n'est pas malpoli de
+refuser d'introduire ce genre de périphérique si on n'accorde que peu de
+confiance à sa provenance.
+
+]
+
+---
+
+.left-column[
+  ## Hygiène informatique
+]
+.right-column[
+
+
+### Logiciels piratés
+
+L'utilisation de logiciels piratés constitue l'un des vecteurs d'infection, très
+apprécié, par les auteurs de programmes malicieux. La plupart, trouvables
+facilement et publiquement sur la toile, sont munis de **portes dérobées**.
+
+### Logiciels Open Source
+
+Un logiciel dit "Open Source", se caractérise par sa transparence. Son code
+source, est disponible librement pour son utilisateur. Comme la plupart sont
+gratuits, alors, leurs codes sont publiques.
+
+Cela apporte un gain de sécurité privilégié, car la conception du logiciel,
+est ainsi vérifiée par une grande communauté de développeurs.
+
+![GNU/Linux distributions logos](assets/images/logos_linux.png)
+
+]
+
+---
+
+.left-column[
+  ## Sauvegarde intelligente
+  ### - Menaces
+]
+.right-column[
+
+Une des plus grandes menace et hantise, pour un étudiant est la perte de ses
+données tel que, par exemple, ses travaux en cours de réalisation.
+
+Une perte des données peut survenir à cause:
+
+* d'une mauvaise manipulation,
+* d'une défaillance du système,
+* du vol du matériel,
+* d'une dégradation du matériel,
+* d'une attaque.
+
+Pour éviter la perte définitive de données, il est recommandé d'adopter une
+solution, de sauvegarde intelligente.
+
+]
+
+---
+
+.left-column[
+  ## Sauvegarde intelligente
+  ### - Menaces
+  ### - Solutions
+]
+.right-column[
+
+Il est recommandé de disposer d'une copie de ses données, en 3 exemplaires:
+
+![Stratégie de sauvegarde](assets/images/backup.png)
+
+Généralement les systèmes d'exploitation, prévoient de base, des solutions de
+sauvegarde.
+
+* Apple Time Machine (OSX);
+* Windows File History (Win 8+).
+* Rsync (GNU/Linux)
+
+Parmis les solutions de sauvegarde distante sûres:
+
+* [SpiderOak](https://spideroak.com)
+
+]
+
+---
+
+.left-column[
+  ## Internet
+  ### - Généralités
+]
+.right-column[
+
+À l'heure actuelle, un ordinateur dépourvu d'accès à Internet, n'est pas
+d'une grande utilité, pour le grand public. Il est énormément utilisé à des
+buts de :
+
+* Transmission et partage de données;
+* Consultation d'informations;
+* Medium de communication;
+* Plateforme de consomation;
+* Production et pilotage.
+
+En contrepartie, cet accès constitue, une exposition à toute une variété de
+menaces et de pièges. Et de ce fait, représente un grand risque pour
+l'utilisateur dépourvu de guide.
+
+**Tips de pro:** Séparer les traffics par l'utilisation de plusieurs
+naviguateurs.
+
+]
+
+---
+
+.left-column[
+  ## Internet
+  ### - Généralités
+  ### - Menaces
+]
+.right-column[
+
+### Publicités
+
+Les encards publicitaires virtuels, représentent un vecteur d'infection de choix
+pour les auteurs de maliciels. Généralement,
+
+Pour éviter d'être géner par les publicités intempestives, il est fortement
+conseillé d'installer un filtre permettant de les bloquer. Ils se traduisent
+sous la forme d'extensions du naviguateur.
+
+![uBlock Origin](assets/images/ublock.png)
+
+### Phishing
+
+Le phising, est le fait d'usurper l'identité de quelqu'un pour soustraire des
+informations à un utilisateur, en le manipulant. Généralement il se présente
+sous la forme d'un mail, dont l'identité de l'auteur a été usurpé.
+
+]
+
+---
+
+.left-column[
+  ## Internet
+  ### - Généralités
+  ### - Menaces
+  ### - Chiffrement
+]
+.right-column[
+
+Parfois, lors de la naviguation sur Internet, il est possible de rencontrer ce
+genre de message d'erreur.
+
+![HTTP insecure](assets/images/gtfo.png)
+
+Il est possible de l'interpréter de plusieurs manières:
+
+* Le certificat du serveur n'est pas valide
+* Le réseau est compromis
+
+]
+
+---
+
+.left-column[
+  ## Internet
+  ### - Généralités
+  ### - Menaces
+  ### - Chiffrement
+]
+.right-column[
+
+Dans la barre d'adresse du naviguateur, si l'url est préfixée de la chaîne
+`https://` et munie d'un indicateur vert alors la connexion est authentifiée et
+chiffrée.
+
+![HTTP secure](assets/images/http_secure.png)
+
+Le traffic est illisible pour quelqu'un qui tenterai d'espionner la
+communication.
+
+]
+
+---
+
+.left-column[
+  ## Internet
+  ### - Généralités
+  ### - Menaces
+  ### - Chiffrement
+]
+.right-column[
+
+Si l'url est préfixée de la chaîne `http://` et n'est pas munie d'indicateur
+spécial, alors la connexion n'est ni authentifiée et ni chiffrée.
+
+![HTTP secure](assets/images/http.png)
+
+Dans ce cas présent, tout le traffic est lisible et manipulable par quiconque
+tentant d'espionner la communication.
+
+]
+
+---
+.left-column[
+  ## Internet
+  ### - Généralités
+  ### - Menaces
+  ### - Chiffrement
+  ### - Authentification
+]
+.right-column[
+
+En 2016, les utilisateurs possèdent de multiples comptes en ligne comme par
+exemple :
+
+* Boite(s) mail;
+* Réseaux sociaux;
+* E-Commerce;
+* Jeux-vidéos;
+* Forums.
+
+Il est important d'avoir un mot de passe, **différent pour chaque compte**.
+Dans le cas contraire, si un adversaire obtient, le mot de passe d'un seul
+compte, il pourra le rejouer pour tout les autres compte l'utilisant.
+
+Pour protéger des données sensibles (travaux, vie privée), il est possible
+d'augmenté le niveau de sécurité de l'authentification, en introduisant un
+deuxième facteur.
+
+* SMS de confirmation;
+* One-time password.
+
+]
+
+---
+
+.left-column[
+  ## Mots de passe
+  ### - Principes
+]
+.right-column[
+
+Un bon mot de passe doit impérativement être:
+
+* secret,
+* robuste,
+* unique,
+* imprédictible,
+* éphémère.
+
+Les recommandations concernant la taille des mots de passe, évoluent au fil
+du temps. En 2016, il est conseillé d'utiliser des mots de passe d'au moins 10
+caractères.
+
+Exemples de mots de passe faibles:
+
+* 123456 (Mot de passe le plus utilisé en 2015)
+* passioninformatique1995
+* jkléà$nm,.-
+
+]
+
+---
+
+![Password strength](assets/images/password_strength.png)
+
+---
+
+.left-column[
+  ## Mots de passe
+  ### - Principes
+  ### - Gestionnaires
+]
+.right-column[
+
+Pour obtenir un niveau de sécurité élevé, et éviter à se souvenir de tous ses
+mots de passe, il est fortement conseillé d'utiliser un gestionnaire.
+
+Ces gestionnaires, permettent de centraliser le stockage des mots de passe,
+de manière sécurisée. De plus, il est possible de générer automatiquement des
+nouveaux mots de passe extrêmement forts.
+
+Ainsi, l'utilisateur, n'aura plus qu'à ce souvenir, de deux mots de passe (Son
+compte utilisateur et celui du gestionnaire).
+
+Parmi les plus connu:
+
+* [KeepassX](https://www.keepassx.org)
+* [1Password](https://1password.com)
+* [LastPass](https://www.lastpass.com)
+
+Pour minimiser le risque de perte ou de destruction de ce volume de stockage,
+il est conseillé de le sauvegarder sur un support physique dédié (Clef USB).
+
+]
+
+---
+.left-column[
+  ## Références
+]
+.right-column[
+
+### Documentation
+
+* [Base de connaissances de l'EPFL](https://secure-it.epfl.ch/sensi/)
+* [Decent Security](https://decentsecurity.com)
+* [Have I Been Pwned ?](https://haveibeenpwned.com)
+
+### Logiciels Open Source
+
+* [Framalibre](https://framalibre.org)
+* [Ubuntu](https://www.ubuntu.com/desktop)
+* [Ubuntu-fr](http://www.ubuntu-fr.org)
+
+]
+---
+template: inverse
+
+# Des questions ?
+    </textarea>
+    <script src="assets/js/remark-latest.min.js"></script>
+    <script>
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="assets/js/remark.language.js"></script>
+    <script>
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark',
+          highlightLines: true
+        }) ;
+    </script>
+  </body>
+</html>
